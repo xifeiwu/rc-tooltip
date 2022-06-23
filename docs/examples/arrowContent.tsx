@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import Tooltip from 'rc-tooltip';
 import '../../assets/bootstrap_white.less';
 
 const text = <span>Tooltip Text</span>;
-const styles = {
+const styles: CSSProperties = {
   display: 'table-cell',
   height: '60px',
   width: '80px',

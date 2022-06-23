@@ -3,8 +3,22 @@ import Tooltip from 'rc-tooltip';
 import '../../assets/bootstrap.less';
 import { placements } from '../../src/placements';
 
+interface IState {
+  destroyTooltipOnHide: boolean;
+  destroyTooltipOptions: {name: string, value: number}[];
+  placement: string;
+  transitionName: string;
+  trigger: {
+    hover: boolean;
+    focus: boolean;
+    click: boolean;
+  };
+  offsetX: number;
+  offsetY: number;
+  overlayInnerStyle?: object; 
+}
 class Test extends Component {
-  state = {
+  state: IState = {
     destroyTooltipOnHide: false,
     destroyTooltipOptions: [
       {
@@ -23,7 +37,9 @@ class Test extends Component {
     placement: 'right',
     transitionName: 'rc-tooltip-zoom',
     trigger: {
-      hover: 1,
+      hover: true,
+      focus: false,
+      click: false,
     },
     offsetX: placements.right.offset[0],
     offsetY: placements.right.offset[1],
@@ -84,7 +100,7 @@ class Test extends Component {
   };
 
   onOverlayInnerStyleChange = () => {
-    this.setState(prevState => ({
+    this.setState((prevState: IState) => ({
       overlayInnerStyle: prevState.overlayInnerStyle ? undefined : { background: 'red' },
     }));
   };

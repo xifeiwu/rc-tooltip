@@ -9,6 +9,7 @@ function preventDefault(e) {
 class Test extends Component {
   state = {
     visible: false,
+    destroy: false,
   };
 
   onVisibleChange = visible => {

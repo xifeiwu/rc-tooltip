@@ -6,6 +6,7 @@ import '../../assets/bootstrap.less';
 class Test extends Component {
   state = {
     visible: false,
+    destroy: false,
   };
 
   handleDestroy = () => {
